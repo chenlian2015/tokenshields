@@ -13817,7 +13817,7 @@
      (i32.eq
       (tee_local $5
        (i32.load offset=52
-        (tee_local $10
+        (tee_local $0
          (call $_ZNK5eosio11multi_indexILy3607749779137757184ENS_5token7accountEJEE3getEyPKc
           (i32.add
            (get_local $11)
@@ -13834,41 +13834,36 @@
         )
        )
       )
-      (i32.load
-       (i32.add
-        (get_local $10)
-        (i32.const 56)
+      (tee_local $10
+       (i32.load
+        (i32.add
+         (get_local $0)
+         (i32.const 56)
+        )
        )
       )
-     )
-    )
-    (br_if $label$6
-     (i64.eq
-      (i64.load
-       (get_local $5)
-      )
-      (get_local $3)
      )
     )
     (loop $label$8
-     (i64.store offset=56
-      (get_local $11)
-      (tee_local $3
-       (i64.add
-        (get_local $3)
-        (i64.const 1)
-       )
-      )
-     )
-     (br_if $label$8
-      (i64.ne
-       (get_local $3)
+     (br_if $label$6
+      (i64.eq
        (i64.load
         (get_local $5)
        )
+       (get_local $3)
       )
      )
-     (br $label$6)
+     (br_if $label$8
+      (i32.ne
+       (get_local $10)
+       (tee_local $5
+        (i32.add
+         (get_local $5)
+         (i32.const 8)
+        )
+       )
+      )
+     )
     )
    )
    (i32.store offset=8
@@ -13883,7 +13878,7 @@
      (get_local $11)
      (i32.const 16)
     )
-    (get_local $10)
+    (get_local $0)
     (get_local $1)
     (i32.add
      (get_local $11)

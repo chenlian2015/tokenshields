@@ -152,7 +152,7 @@ void token::addwhitelist(account_name account, asset symbol, account_name white)
         if(*ite==white){
             return;
         }
-        white++;
+        ite++;
     }
 
     from_acnts.modify(from, account, [&](auto & data){
