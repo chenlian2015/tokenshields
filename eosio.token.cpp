@@ -104,7 +104,7 @@ void token::transfer( account_name from,
             }
             iterec++;
         }
-        eosio_assert(addedasset.amount<=fromaccount.limittrans.amount, "trans exceed the limit");
+        eosio_assert(addedasset.amount+quantity.amount<=(fromaccount.limittrans.amount*10000), "trans exceed the limit");
     }
 
     from_acnts.modify(fromaccount, from, [&](auto &data){
@@ -172,7 +172,7 @@ void token::rmwhitelist(account_name account,  asset symbol, account_name white)
                 data.whitelist.erase(ite);
                 return;
             }
-            white++;
+            ite++;
         }
     });
 }
